@@ -1,0 +1,32 @@
+{
+  "fund-lock": {
+    "bytes": 30040,
+    "ckb_data_hash": "0x88143c8b3303f1223261364fc932a0c42ce9b4cc76c0e9fc293baabc9eff6367",
+    "sha256": "3b316736197e058647e060d6764ea90e9e13b9d99d00c05a359734f8c5a3ed4d"
+  },
+  "composed-fund-lock": {
+    "bytes": 42400,
+    "ckb_data_hash": "0xcfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee",
+    "sha256": "b0b4a82dc80968ca07f6301ed5bb082b5d2a69c5f6ad93a3eff618f5740f564f"
+  },
+  "quota-type": {
+    "bytes": 39248,
+    "ckb_data_hash": "0x3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b",
+    "sha256": "035d3cd393a4bbb0717d2c754fde0f98b368efffe7525af66ac0bcc523ad1f68"
+  },
+  "quota-adapter": {
+    "bytes": 61800,
+    "ckb_data_hash": "0x4662f787fdec3478615831108d816c4e68c7d6ab0291c27e4e9ae995570cdb6a",
+    "sha256": "3e390697cd063ed0324e013150d0b1881651228e04c791bf7fb02dfdba27fb6e"
+  },
+  "payment-cap": {
+    "bytes": 36384,
+    "ckb_data_hash": "0xbaac452403d80c007282b87061601d4e659bc5effe7a07bbc0a70f51a4e58b76",
+    "sha256": "0e9ab4760fae47949e81d41af6eaea44eed3562691ce436b1c1003b1e180f239"
+  },
+  "quotacell-payment-cap": {
+    "bytes": 57072,
+    "ckb_data_hash": "0xd235c378661cc76763f7130a908c4c56800f6c69d8eb7a1f7b5365ccca402e0b",
+    "sha256": "ac5aeee36b5ec42a16bb2bba43e6750bb02dd04d69a783373bb903a0888b1e71"
+  }
+}

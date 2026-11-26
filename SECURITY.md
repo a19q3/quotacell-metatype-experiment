@@ -25,3 +25,9 @@ C+cap adds an independently pinned second rule. It reads the actual payout from 
 The single active policy Cell is a contention point in A, B and C. Competing delegated spends need to use successive policy outpoints and sign against the current state. Independent owner recovery in B and C can proceed without that state, subject to contention on the selected fund and authorising inputs. C also needs its committed adapter code, table, genesis header, and any used shared definition while the policy is active. Owner recovery uses only the immutable fund Lock and the owner authorising Lock. Deployments must preserve access to the code Cells.
 
 The replay uses standard fee and change shapes and bounds delegates to 64 fund inputs. It covers two-fund aggregation. It does not exercise maximum-size groups, reorganisation recovery, production wallets, UDT deposits or strict post-closure recovery with zero retained policy capacity.
+
+## Attachment in v0.1.1
+
+The historical fixed-cap profile used Cap at issuance. The new independent cap also handles an output-only virtual group when an already-issued policy is present. In that case it checks the actual input and successor Type identity, the unchanged fund Lock, the owner-authorising input and an exact Manifest diff adding only an empty cap state. The quota payload is preserved byte for byte. A continuing cap is mandatory on successors until the physical policy retires. A historical deployment's immutable table continues to select its originally pinned executable.
+
+The owner must still sign the existing governance transition. The new adapter cannot authorise a delegate, alter the recovery branch or change the published quota code. The payment interface checks actual Cell roles before applying the limit. The quota adapter still enforces its original positions, and the single live policy Cell still serialises delegated spending. [Payment interface](PAYMENT-INTERFACE.md)

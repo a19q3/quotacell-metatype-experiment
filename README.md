@@ -1,49 +1,54 @@
 # QuotaCell and Metatype experiment
 
-Can a CKB Pocket retire delegated authority while preserving the owner's ability to recover a late deposit? This experiment runs the public native QuotaCell profile, a conventional Lock/Type implementation, and a Metatype implementation in a disposable CKB devnet. It is experimental and unaudited.
+An existing CKB Pocket can acquire an independently enforced payment cap after issuance. This experiment follows the Pocket from its first delegated payment through attachment, further payments and owner closure. It compares that sequence with the original native QuotaCell profile and conventional CKB Lock/Type composition. It is experimental and unaudited.
 
-| Profile | Policy after closure | Late recovery authority |
+| Profile | Policy while active | Late recovery |
 | --- | --- | --- |
-| A · QuotaCell QCN4/QCT4 | Terminal QCT4 Cell | Owner Lock and a terminal policy transition |
-| B · Conventional | Policy consumed | Owner Lock authenticated independently |
-| C · Metatype | Policy consumed | Owner Lock authenticated independently |
-| C+cap · Composition demonstration | Policy consumed | Same as C, with an additional independent payment rule while active |
-
-B and C also allow the owner to withdraw protected native funds while a Pocket is active. A keeps recovery tied to its policy. The comparison matches the two-delegate payment and closure workload, with this deliberate behavioural difference. See [results, charts and test coverage](RESULTS.md) and the [security model](SECURITY.md).
+| A | Original QuotaCell QCN4/QCT4 | Owner and terminal policy |
+| B | Conventional CKB | Independent owner Lock authority |
+| C | Metatype with Quota | Independent owner Lock authority |
+| D | Metatype with Quota and Cap from issuance | Independent owner Lock authority |
+| E | Metatype with Cap attached after issuance | Independent owner Lock authority |
 
 ```mermaid
 flowchart LR
-    A[Fund Lock] --> B[Owner authorising input]
-    A --> C[Live quota policy consumed]
-    B --> D[Owner recovery]
-    C --> E[Validate delegated spend and update allowance]
-    C --> F[Owner-authorised retirement]
-    F --> G[No per-Pocket policy Cell remains]
+    A["Issue Pocket with Quota only"] --> P["Delegate pays 61 CKB"]
+    P --> T["Owner attaches Cap of 61 CKB"]
+    T --> Q["Quota and Cap independently validate payments"]
+    Q --> R["Owner retires policy"]
 ```
+
+Profile E admits both adapter mappings at deployment. Its initial Manifest contains just Quota. A 62 CKB candidate payment passes before attachment and fails afterwards. The owner attaches the cap without changing the physical Type, Pocket namespace, fund Lock, authorised delegates or any byte of quota state. The cap receives an output-only group and checks owner authorisation and the Manifest diff. The historical Quota adapter and dispatcher ELFs are reused byte for byte.
+
+An immutable table fixes which logical code/addressing pairs a deployment supports. Attaching a supported rule changes a Cell's Manifest. Introducing a new mapping changes the committed table and physical deployment. The example retains the existing Pocket identity across attachment, with a newly created policy outpoint.
+
+See [v0.1.1 results and charts](RESULTS-v0.1.1.md), the [payment interface experiment](PAYMENT-INTERFACE.md), and the [security model](SECURITY.md). [Historical v0.1.0 results](RESULTS.md) preserve the earlier workload and measurements.
 
 ## Reproduce
 
-Use Rust 1.95.0, a RISC-V Rust target, Python 3, curl and a CKB 0.210.0 executable with the IntegrationTest and Experiment RPC modules. The Rust dependencies pin the public Metatype 0.1.0 source. Clone the same tag for its dispatcher and transaction tooling.
+Use Rust 1.95.0, the RISC-V target, Python 3, curl, GitHub CLI and CKB 0.210.0 with the IntegrationTest and Experiment RPC modules. The experiment build rebuilds and checks the original binaries, then builds the new cap against the public Metatype v0.1.1 libraries. The dispatcher is the verified v0.1.0 release ELF.
 
 ```sh
-git clone --branch v0.1.0 https://github.com/a19q3/ckb-metatype.git ../ckb-metatype
+git clone --branch v0.1.1 https://github.com/a19q3/ckb-metatype.git ../ckb-metatype
 rustup target add riscv64imac-unknown-none-elf
-(cd ../ckb-metatype && tools/build-contracts.sh)
-tools/build-contracts.sh
+mkdir -p .local
+tools/build-v0.1.1.sh > .local/contracts.json
+diff -u evidence/contracts-v0.1.1.json .local/contracts.json
+gh release download v0.1.0 --repo a19q3/ckb-metatype --pattern metatype --dir .local
 python3 -m venv .local/venv
 .local/venv/bin/pip install -r ../ckb-metatype/tools/requirements.txt
 .local/venv/bin/python tools/baseline.py .local/baseline
 PYTHONPATH=../ckb-metatype/tools .local/venv/bin/python tools/compare.py \
-    --ckb /path/to/ckb --metatype ../ckb-metatype --baseline .local/baseline \
-    > .local/comparison.json
+  --ckb /path/to/ckb --metatype ../ckb-metatype --dispatcher .local/metatype \
+  --baseline .local/baseline > .local/comparison.json
 ```
 
-The baseline helper makes read-only requests for the exact published A, F and Q artifacts and checks SHA-256 against pinned values. Use `--rpc` for a different archive-capable testnet endpoint, or `--direct` if your HTTP proxy blocks these reads. The replay itself starts a loopback-only chain with fresh keys and a funded test genesis. The runner verifies accepted cases with `dry_run_transaction` and commits them in ordinary devnet blocks. Rejected transactions are dry-run only. There is no public-network transaction RPC in the replay.
+The baseline helper makes read-only requests for the published A, F and Q ELFs and checks pinned SHA-256 digests. It supports `--rpc` for another archive-capable testnet endpoint and `--direct` when a proxy blocks the reads. The replay submits accepted transactions on a disposable loopback-only chain with fresh keys. Expected rejections use only the verifier. Cycles include secp256k1 verification and vary with fresh signatures.
 
-[Raw results](evidence/comparison.json) record contract digests, cycle counts, transaction and witness sizes, errors, and locally committed transaction hashes. [Experiment build hashes](evidence/contracts.json) cover only first-party contracts in this repository. To regenerate the report and chart from a fresh run, install `matplotlib==3.10.8` in a Python environment that supports it, then run `python tools/report.py .local/comparison.json`.
+[Raw v0.1.1 evidence](evidence/comparison-v0.1.1.json) includes actual committed transaction hashes, occupied capacity, verifier outcomes and attachment snapshots. [Contract hashes](evidence/contracts-v0.1.1.json) cover the rebuilt experiment code. To regenerate the report and chart, install `matplotlib==3.10.8` in a supported Python environment and run `python tools/report.py .local/comparison.json`.
 
 ## Sources and attribution
 
-- QuotaCell revision `b3f488e47359361ea5d2549c152b8c0b418ebead`. The QCN4/QCT4 implementation and original test evidence are © 2026 Ticoworld and distributed under Apache-2.0. The replay fetches the deployed QCN4 ELF and the original proxy and always-success provider ELFs by digest. This repository ships the experiment's original reimplementation, builder and report under MIT. The upstream executables are fetched separately and retain their upstream terms. [QuotaCell source](https://github.com/Ticoworld/QuotaCell/tree/b3f488e47359361ea5d2549c152b8c0b418ebead) · [Upstream dependency notices](https://github.com/Ticoworld/QuotaCell/blob/b3f488e47359361ea5d2549c152b8c0b418ebead/docs/DEPENDENCIES.md)
-- Metatype `v0.1.0`, commit `38bd969c3d374b1b1a77432b5de3a1d152af0368`. The experiment code, adapters and measurements live here. [Metatype release](https://github.com/a19q3/ckb-metatype/releases/tag/v0.1.0)
-- CKB 0.210.0, commit `119598b0a1146a569068ac80bdba7eb5f6292fd3`. [CKB source](https://github.com/nervosnetwork/ckb/tree/119598b0a1146a569068ac80bdba7eb5f6292fd3)
+- Original QuotaCell revision `b3f488e47359361ea5d2549c152b8c0b418ebead`. Its implementation and original evidence are © 2026 Ticoworld under Apache-2.0. The replay obtains its deployed ELFs separately, subject to their upstream terms. [QuotaCell source](https://github.com/Ticoworld/QuotaCell/tree/b3f488e47359361ea5d2549c152b8c0b418ebead) · [Upstream dependency notices](https://github.com/Ticoworld/QuotaCell/blob/b3f488e47359361ea5d2549c152b8c0b418ebead/docs/DEPENDENCIES.md)
+- Metatype dispatcher v0.1.0, revision `38bd969c3d374b1b1a77432b5de3a1d152af0368`. The current adapter uses the public v0.1.1 libraries. [Dispatcher release](https://github.com/a19q3/ckb-metatype/releases/tag/v0.1.0) · [Current SDK release](https://github.com/a19q3/ckb-metatype/releases/tag/v0.1.1)
+- CKB 0.210.0, revision `119598b0a1146a569068ac80bdba7eb5f6292fd3`. [CKB source](https://github.com/nervosnetwork/ckb/tree/119598b0a1146a569068ac80bdba7eb5f6292fd3)

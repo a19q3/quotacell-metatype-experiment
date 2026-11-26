@@ -1,0 +1,1297 @@
+{
+  "ckb_version": "ckb 0.210.0 (119598b 2026-11-24)",
+  "ckb_sha256": "b258d0d9e7ef1925a6e30564666ddee6d310b6b071461a5c748ecc540429d8f7",
+  "metatype_tools_revision": "8376ae4a5d47e10969e7a3a7c6ef3afe81471e0e",
+  "dispatcher_revision": "38bd969c3d374b1b1a77432b5de3a1d152af0368",
+  "original_quota_sha256": "3e390697cd063ed0324e013150d0b1881651228e04c791bf7fb02dfdba27fb6e",
+  "quotacell_revision": "b3f488e47359361ea5d2549c152b8c0b418ebead",
+  "baseline_sha256": {
+    "A": "f4ba47fa9a540a74efcee48829dc0cf8b5b9dbba6950ea118aa5d47c42e60d30",
+    "F": "672b6d8bf809cbcf8e2ec440da4d6aae92241b7c298c3c45a33c3f179a032dba",
+    "Q": "f636bb5a9ddb7db41c73ab263a5b5483acae2e36c53afca2257a1cbc95d83997"
+  },
+  "common_genesis_secp_cell_occupied_ckb": [
+    1048617,
+    52154,
+    117
+  ],
+  "variants": {
+    "A": {
+      "capacity_ckb": {
+        "active_occupied": 572,
+        "active_shared_occupied": null,
+        "active_funded": 600,
+        "active_initial_occupied": 572,
+        "retained_after_closure": 134,
+        "fund_cell_occupied": 73,
+        "custom_code_and_table_cells": {
+          "A": 1277,
+          "F": 27421,
+          "Q": 23661
+        }
+      },
+      "code_hashes": {
+        "A": {
+          "bytes": 1216,
+          "sha256": "f4ba47fa9a540a74efcee48829dc0cf8b5b9dbba6950ea118aa5d47c42e60d30",
+          "ckb_data_hash": "0x3b521cc4b552f109d092d8cc468a8048acb53c5952dbe769d2b2f9cf6e47f7f1"
+        },
+        "F": {
+          "bytes": 27360,
+          "sha256": "672b6d8bf809cbcf8e2ec440da4d6aae92241b7c298c3c45a33c3f179a032dba",
+          "ckb_data_hash": "0x5123908965c711b0ffd8aec642f1ede329649bda1ebdca6bd24124d3796f768a"
+        },
+        "Q": {
+          "bytes": 23600,
+          "sha256": "f636bb5a9ddb7db41c73ab263a5b5483acae2e36c53afca2257a1cbc95d83997",
+          "ckb_data_hash": "0xd03e5921d5499f74ee734d48e51915a0b996840de1bcfc6a6703007ad810714e"
+        }
+      },
+      "tests": {
+        "policy_identity_substitution": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 11 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/d03e5921d5499f74ee734d48e51915a0b996840de1bcfc6a6703007ad810714e.html#11 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 11 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/d03e5921d5499f74ee734d48e51915a0b996840de1bcfc6a6703007ad810714e.html#11 } }'}"
+        },
+        "create": {
+          "cycles": 1745803,
+          "tx_bytes": 1114,
+          "witness_bytes": 97,
+          "cell_deps": 4,
+          "header_deps": 0,
+          "policy_output_occupied_ckb": 572,
+          "tx_hash": "0x58cac85790db111a8d8641c032c6898ab3857a800708ca49f6b84655c057f456"
+        },
+        "deposit": {
+          "cycles": 1639373,
+          "tx_bytes": 472,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0xc251130b5eaf90500e47f309e0d0fe78d0d3242de7b4387e7aad9c111fc083c1"
+        },
+        "wrong_owner": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 6 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/5123908965c711b0ffd8aec642f1ede329649bda1ebdca6bd24124d3796f768a.html#6 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 6 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/5123908965c711b0ffd8aec642f1ede329649bda1ebdca6bd24124d3796f768a.html#6 } }'}"
+        },
+        "wrong_recipient": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 28 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/d03e5921d5499f74ee734d48e51915a0b996840de1bcfc6a6703007ad810714e.html#28 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 28 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/d03e5921d5499f74ee734d48e51915a0b996840de1bcfc6a6703007ad810714e.html#28 } }'}"
+        },
+        "duplicate_policy": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 13 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/d03e5921d5499f74ee734d48e51915a0b996840de1bcfc6a6703007ad810714e.html#13 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 13 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/d03e5921d5499f74ee734d48e51915a0b996840de1bcfc6a6703007ad810714e.html#13 } }'}"
+        },
+        "counter_reset_rejected": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 21 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/d03e5921d5499f74ee734d48e51915a0b996840de1bcfc6a6703007ad810714e.html#21 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 21 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/d03e5921d5499f74ee734d48e51915a0b996840de1bcfc6a6703007ad810714e.html#21 } }'}"
+        },
+        "delegate_1": {
+          "cycles": 1804698,
+          "tx_bytes": 1448,
+          "witness_bytes": 97,
+          "cell_deps": 4,
+          "header_deps": 0,
+          "policy_output_occupied_ckb": 572,
+          "tx_hash": "0xada44163373641973ca41180e371ba3a435fb2d7e79e5029fae47b49da1bf937"
+        },
+        "replayed_authorisation": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code -31 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-type-hash/9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8.html#-31 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code -31 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-type-hash/9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8.html#-31 } }'}"
+        },
+        "revocation_control": {
+          "cycles": 1817195,
+          "tx_bytes": 1448,
+          "witness_bytes": 97,
+          "cell_deps": 4,
+          "header_deps": 0,
+          "policy_output_occupied_ckb": 572,
+          "payment_intent": {
+            "actor": "0xbd9684e19f5d6279a59136e6b86c1e3aeb38955027c6d3ef8b0adaa61fcd7738",
+            "recipient": "0x56417d89b7ac99870abd5a24c54fd508157cb8b29f3cb6994783e89ae8bb6be8",
+            "amount_shannons": 6100000000,
+            "fund_inputs": [
+              {
+                "tx_hash": "0xada44163373641973ca41180e371ba3a435fb2d7e79e5029fae47b49da1bf937",
+                "index": "0x1"
+              }
+            ],
+            "quota_successor_hash": "0xf26c33853796a69bda535dbcd80eb2b8d23403236fefe5f8e5716d7ced859e09"
+          }
+        },
+        "owner_revocation": {
+          "cycles": 1766799,
+          "tx_bytes": 1167,
+          "witness_bytes": 98,
+          "cell_deps": 4,
+          "header_deps": 0,
+          "policy_output_occupied_ckb": 572,
+          "tx_hash": "0xd38f40e881b3a64c05681bb3cf7ad33175f876995ee34084c1dd437f5ba9d5c7"
+        },
+        "revoked_delegate": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 17 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/d03e5921d5499f74ee734d48e51915a0b996840de1bcfc6a6703007ad810714e.html#17 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 17 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/d03e5921d5499f74ee734d48e51915a0b996840de1bcfc6a6703007ad810714e.html#17 } }'}",
+          "payment_intent": {
+            "actor": "0xbd9684e19f5d6279a59136e6b86c1e3aeb38955027c6d3ef8b0adaa61fcd7738",
+            "recipient": "0x56417d89b7ac99870abd5a24c54fd508157cb8b29f3cb6994783e89ae8bb6be8",
+            "amount_shannons": 6100000000,
+            "fund_inputs": [
+              {
+                "tx_hash": "0xada44163373641973ca41180e371ba3a435fb2d7e79e5029fae47b49da1bf937",
+                "index": "0x1"
+              }
+            ],
+            "quota_successor_hash": "0xb2d606189060c25fe09d925b3033c68a46264ba40b2c9535d1b5ab437aa536ae"
+          }
+        },
+        "replenishment": {
+          "cycles": 1637699,
+          "tx_bytes": 472,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0xd2e1904a4f2ff7aa8df606ef50c1a2bcdc2a7937ba0e42b1fda629cdfca55fc6"
+        },
+        "delegate_2_multi_fund": {
+          "cycles": 1815930,
+          "tx_bytes": 1500,
+          "witness_bytes": 97,
+          "cell_deps": 4,
+          "header_deps": 0,
+          "policy_output_occupied_ckb": 572,
+          "tx_hash": "0x63334ff8dd16e6699b8eea89c39e14835f6779eb004b191ae275006a3a0cfbbe"
+        },
+        "delegate_2_exhaust_allowance": {
+          "cycles": 1811402,
+          "tx_bytes": 1448,
+          "witness_bytes": 97,
+          "cell_deps": 4,
+          "header_deps": 0,
+          "policy_output_occupied_ckb": 572,
+          "tx_hash": "0x122a64830b7e3bc4c00a1ffbf6b35e448c1caddec20f188ff0130c40c674104a"
+        },
+        "shared_exhausted": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 10 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/d03e5921d5499f74ee734d48e51915a0b996840de1bcfc6a6703007ad810714e.html#10 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 10 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/d03e5921d5499f74ee734d48e51915a0b996840de1bcfc6a6703007ad810714e.html#10 } }'}"
+        },
+        "unauthorised_retirement": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 15 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/d03e5921d5499f74ee734d48e51915a0b996840de1bcfc6a6703007ad810714e.html#15 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 15 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/d03e5921d5499f74ee734d48e51915a0b996840de1bcfc6a6703007ad810714e.html#15 } }'}"
+        },
+        "active_owner_independent_recovery": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 6 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/5123908965c711b0ffd8aec642f1ede329649bda1ebdca6bd24124d3796f768a.html#6 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 6 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/5123908965c711b0ffd8aec642f1ede329649bda1ebdca6bd24124d3796f768a.html#6 } }'}"
+        },
+        "close": {
+          "cycles": 1767198,
+          "tx_bytes": 889,
+          "witness_bytes": 97,
+          "cell_deps": 4,
+          "header_deps": 0,
+          "policy_output_occupied_ckb": 134,
+          "tx_hash": "0x4731b95c525430bb96998b76a3a20381d9bc7495a607ee6f85696236de4dcf3b"
+        },
+        "late_deposit": {
+          "cycles": 1613585,
+          "tx_bytes": 472,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0x35e7035371bdb268dcb7faa4e9bb83e0bdd1f08bc4858db66fcb3140cd60a5ce"
+        },
+        "delegate_after_close": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 6 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/5123908965c711b0ffd8aec642f1ede329649bda1ebdca6bd24124d3796f768a.html#6 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 6 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/5123908965c711b0ffd8aec642f1ede329649bda1ebdca6bd24124d3796f768a.html#6 } }'}"
+        },
+        "late_owner_recovery": {
+          "cycles": 1722338,
+          "tx_bytes": 889,
+          "witness_bytes": 97,
+          "cell_deps": 4,
+          "header_deps": 0,
+          "policy_output_occupied_ckb": 134,
+          "tx_hash": "0x7acdbc2ef246c1ddd1b73f38c85520d367008238a0e54c352675b9ae5389c87e"
+        }
+      }
+    },
+    "B": {
+      "capacity_ckb": {
+        "active_occupied": 395,
+        "active_shared_occupied": null,
+        "active_funded": 600,
+        "active_initial_occupied": 395,
+        "retained_after_closure": 0,
+        "fund_cell_occupied": 105,
+        "custom_code_and_table_cells": {
+          "fund-lock": 30101,
+          "quota-type": 39309
+        }
+      },
+      "code_hashes": {
+        "fund-lock": {
+          "bytes": 30040,
+          "sha256": "3b316736197e058647e060d6764ea90e9e13b9d99d00c05a359734f8c5a3ed4d",
+          "ckb_data_hash": "0x88143c8b3303f1223261364fc932a0c42ce9b4cc76c0e9fc293baabc9eff6367"
+        },
+        "quota-type": {
+          "bytes": 39248,
+          "sha256": "035d3cd393a4bbb0717d2c754fde0f98b368efffe7525af66ac0bcc523ad1f68",
+          "ckb_data_hash": "0x3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b"
+        }
+      },
+      "tests": {
+        "policy_identity_substitution": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 } }'}"
+        },
+        "create": {
+          "cycles": 1693296,
+          "tx_bytes": 888,
+          "witness_bytes": 85,
+          "cell_deps": 3,
+          "header_deps": 0,
+          "policy_output_occupied_ckb": 395,
+          "tx_hash": "0xf967ce00da08cc154c87cab83096f0c551711e653dc2737c1c3a4230a4338cae"
+        },
+        "deposit": {
+          "cycles": 1630020,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0x71a7d1052cb5151133bd5383131a3cf1c9694223c52c60312d1f4313535d7cf0"
+        },
+        "wrong_owner": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/88143c8b3303f1223261364fc932a0c42ce9b4cc76c0e9fc293baabc9eff6367.html#51 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/88143c8b3303f1223261364fc932a0c42ce9b4cc76c0e9fc293baabc9eff6367.html#51 } }'}"
+        },
+        "wrong_recipient": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 } }'}"
+        },
+        "duplicate_policy": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 } }'}"
+        },
+        "counter_reset_rejected": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 } }'}"
+        },
+        "delegate_1": {
+          "cycles": 1816064,
+          "tx_bytes": 1254,
+          "witness_bytes": 85,
+          "cell_deps": 3,
+          "header_deps": 0,
+          "policy_output_occupied_ckb": 395,
+          "tx_hash": "0x808079570c39a066ae097971cdcfc494f1ef8f04f53e8debd407f115bacd58d7"
+        },
+        "replayed_authorisation": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code -31 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-type-hash/9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8.html#-31 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code -31 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-type-hash/9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8.html#-31 } }'}"
+        },
+        "revocation_control": {
+          "cycles": 1790357,
+          "tx_bytes": 1254,
+          "witness_bytes": 85,
+          "cell_deps": 3,
+          "header_deps": 0,
+          "policy_output_occupied_ckb": 395,
+          "payment_intent": {
+            "actor": "0x775d3760f831a87ed0c69595853873e612e2b16ea77f62a75e8082d66b85d52a",
+            "recipient": "0xfa87b82dedcaaf399a39758326ab352d41f24347c003788aa4a9174c3395049d",
+            "amount_shannons": 6100000000,
+            "fund_inputs": [
+              {
+                "tx_hash": "0x808079570c39a066ae097971cdcfc494f1ef8f04f53e8debd407f115bacd58d7",
+                "index": "0x1"
+              }
+            ],
+            "quota_successor_hash": "0xa2a9e45e69bdef583f8475d05223044b10aa4e07d3ee8d0474a0d6b4ade7db84"
+          }
+        },
+        "owner_revocation": {
+          "cycles": 1711142,
+          "tx_bytes": 940,
+          "witness_bytes": 85,
+          "cell_deps": 3,
+          "header_deps": 0,
+          "policy_output_occupied_ckb": 395,
+          "tx_hash": "0x14a43969306bbb0c11f16e8c482a2be4233e9198627781bbb8ff3f4dd51dec5a"
+        },
+        "revoked_delegate": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 } }'}",
+          "payment_intent": {
+            "actor": "0x775d3760f831a87ed0c69595853873e612e2b16ea77f62a75e8082d66b85d52a",
+            "recipient": "0xfa87b82dedcaaf399a39758326ab352d41f24347c003788aa4a9174c3395049d",
+            "amount_shannons": 6100000000,
+            "fund_inputs": [
+              {
+                "tx_hash": "0x808079570c39a066ae097971cdcfc494f1ef8f04f53e8debd407f115bacd58d7",
+                "index": "0x1"
+              }
+            ],
+            "quota_successor_hash": "0xa84cd717191483d7c723b7bb71243b5e22f752d1ef19dc5adb5486a9f8ae99d8"
+          }
+        },
+        "replenishment": {
+          "cycles": 1607665,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0x75326140cb75bc701359cacf92ccaecbe49c1e4b50f74d42578a5249d5322cc0"
+        },
+        "delegate_2_multi_fund": {
+          "cycles": 1793930,
+          "tx_bytes": 1306,
+          "witness_bytes": 85,
+          "cell_deps": 3,
+          "header_deps": 0,
+          "policy_output_occupied_ckb": 395,
+          "tx_hash": "0x5ac6871da394c9fefd229f827ef19b085f798dfdff759f706adad4bebeed190e"
+        },
+        "delegate_2_exhaust_allowance": {
+          "cycles": 1801240,
+          "tx_bytes": 1254,
+          "witness_bytes": 85,
+          "cell_deps": 3,
+          "header_deps": 0,
+          "policy_output_occupied_ckb": 395,
+          "tx_hash": "0xa9044432ae855d122bb27f5e1019d5feb4209eaadfe18767c272aac4dbddd272"
+        },
+        "shared_exhausted": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 } }'}"
+        },
+        "unauthorised_retirement": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 } }'}"
+        },
+        "active_owner_independent_recovery": {
+          "cycles": 1642996,
+          "tx_bytes": 440,
+          "witness_bytes": 85,
+          "cell_deps": 2,
+          "header_deps": 0,
+          "tx_hash": "0x54a1bada88f549678bdae7ff0903513fddb67c76f734b4798aa18776bc196849"
+        },
+        "deposit_for_close": {
+          "cycles": 1631186,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0xc0fba59309137e6dd0505d5dd96acf55f5b3de9983ac96435cbc9ce89d8c33d3"
+        },
+        "close": {
+          "cycles": 1728746,
+          "tx_bytes": 529,
+          "witness_bytes": 85,
+          "cell_deps": 3,
+          "header_deps": 0,
+          "tx_hash": "0xb9e24e9a5c87bcd937e6c82cdd1cb6b455e3c36d5e7b371a41ff7f5a37e79a84"
+        },
+        "late_deposit": {
+          "cycles": 1618717,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0xd70b448df47ee2283c2d2a4bacb9b261269ae55b73afd53239fd86cf0ce129a2"
+        },
+        "delegate_after_close": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/88143c8b3303f1223261364fc932a0c42ce9b4cc76c0e9fc293baabc9eff6367.html#51 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/88143c8b3303f1223261364fc932a0c42ce9b4cc76c0e9fc293baabc9eff6367.html#51 } }'}"
+        },
+        "late_owner_recovery": {
+          "cycles": 1645014,
+          "tx_bytes": 440,
+          "witness_bytes": 85,
+          "cell_deps": 2,
+          "header_deps": 0,
+          "tx_hash": "0x3bd447e6a3a8c63f1f62776f53e006c2645f4e784dc74c7d40359329a2f4e014"
+        },
+        "namespace_reuse": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 52 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3386245724eecceb8158c938719220cadc51006dee5e69e583a9d75f1dfe438b.html#52 } }'}"
+        },
+        "malformed_late_deposit": {
+          "cycles": 1647876,
+          "tx_bytes": 515,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0x5a8e53650f2b0924823ffaa08225e83671fd4123e2add0843ef745e412dbae7b"
+        },
+        "malformed_native_recovery": {
+          "cycles": 1648553,
+          "tx_bytes": 440,
+          "witness_bytes": 85,
+          "cell_deps": 2,
+          "header_deps": 0,
+          "tx_hash": "0xea13d5d996c978acd0e71bf5efb41ecaa8038d27ce3ac9015a4927d6ada4d891"
+        }
+      }
+    },
+    "C": {
+      "capacity_ckb": {
+        "active_occupied": 517,
+        "active_shared_occupied": 494,
+        "active_funded": 600,
+        "active_initial_occupied": 517,
+        "retained_after_closure": 0,
+        "fund_cell_occupied": 105,
+        "custom_code_and_table_cells": {
+          "composed-fund-lock": 42461,
+          "quota-adapter": 61861,
+          "metatype": 64581,
+          "table": 128,
+          "definition_quota": 119
+        }
+      },
+      "code_hashes": {
+        "composed-fund-lock": {
+          "bytes": 42400,
+          "sha256": "b0b4a82dc80968ca07f6301ed5bb082b5d2a69c5f6ad93a3eff618f5740f564f",
+          "ckb_data_hash": "0xcfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee"
+        },
+        "quota-adapter": {
+          "bytes": 61800,
+          "sha256": "3e390697cd063ed0324e013150d0b1881651228e04c791bf7fb02dfdba27fb6e",
+          "ckb_data_hash": "0x4662f787fdec3478615831108d816c4e68c7d6ab0291c27e4e9ae995570cdb6a"
+        },
+        "metatype": {
+          "bytes": 64520,
+          "sha256": "d8d89d81e2e3955ad4aa7a9dc0a09fe86fcfe9fbc60bbda3601f333f16477176",
+          "ckb_data_hash": "0x3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360"
+        }
+      },
+      "tests": {
+        "policy_identity_substitution": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "create": {
+          "cycles": 1952333,
+          "tx_bytes": 1116,
+          "witness_bytes": 85,
+          "cell_deps": 5,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 517,
+          "tx_hash": "0x0031db185c4822427badd0f1dd6b967c20a8a9267475bf02a207a410cec0dc4e"
+        },
+        "deposit": {
+          "cycles": 1634736,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0x5909d94af735f66b16ccec438ea32967ce295fc8b0a4ac7838cc8c16b74e8e44"
+        },
+        "wrong_owner": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/cfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee.html#51 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/cfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee.html#51 } }'}"
+        },
+        "wrong_recipient": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "duplicate_policy": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "counter_reset_rejected": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "delegate_1_shared_verifier": {
+          "cycles": 2116959,
+          "tx_bytes": 1496,
+          "witness_bytes": 85,
+          "cell_deps": 6,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 494
+        },
+        "wrong_recipient_shared": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "delegate_1": {
+          "cycles": 2057412,
+          "tx_bytes": 1482,
+          "witness_bytes": 85,
+          "cell_deps": 5,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 517,
+          "tx_hash": "0xdd5c0c97c3407fae90afedd1b24a4facb60417f463049832fe4b4a4fa9c97ec3"
+        },
+        "replayed_authorisation": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code -31 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-type-hash/9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8.html#-31 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code -31 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-type-hash/9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8.html#-31 } }'}"
+        },
+        "revocation_control": {
+          "cycles": 2080236,
+          "tx_bytes": 1482,
+          "witness_bytes": 85,
+          "cell_deps": 5,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 517,
+          "payment_intent": {
+            "actor": "0x30335b1b9f4f1d303c0d02ac8ee30e113430a066cb37260f9cfc90bc9f3383d7",
+            "recipient": "0xbf797d24d79a7b712f1ff04a123a13871c1703e644406489f9ccfb36c0e1a5b3",
+            "amount_shannons": 6100000000,
+            "fund_inputs": [
+              {
+                "tx_hash": "0xdd5c0c97c3407fae90afedd1b24a4facb60417f463049832fe4b4a4fa9c97ec3",
+                "index": "0x1"
+              }
+            ],
+            "quota_successor_hash": "0x46e88ba426bf06b10353776978115f3e62047c2e3afd3cbffc868ed74ee49cac"
+          }
+        },
+        "owner_revocation": {
+          "cycles": 2041794,
+          "tx_bytes": 1182,
+          "witness_bytes": 85,
+          "cell_deps": 6,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 494,
+          "tx_hash": "0xfbbc7a98e7383169c7e30a586857c47ad46bb4eb79dca564afe251cdb1d65c01"
+        },
+        "revoked_delegate": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}",
+          "payment_intent": {
+            "actor": "0x30335b1b9f4f1d303c0d02ac8ee30e113430a066cb37260f9cfc90bc9f3383d7",
+            "recipient": "0xbf797d24d79a7b712f1ff04a123a13871c1703e644406489f9ccfb36c0e1a5b3",
+            "amount_shannons": 6100000000,
+            "fund_inputs": [
+              {
+                "tx_hash": "0xdd5c0c97c3407fae90afedd1b24a4facb60417f463049832fe4b4a4fa9c97ec3",
+                "index": "0x1"
+              }
+            ],
+            "quota_successor_hash": "0x4320f3ad41de54d0f0a75b4a5355240c166f9f3baf1284a4f71fb1fb81461262"
+          }
+        },
+        "replenishment": {
+          "cycles": 1635341,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0xae50f7838e24c75a9428ec844252148df5a198d708af430b3edda6db156880a6"
+        },
+        "delegate_2_multi_fund": {
+          "cycles": 2135979,
+          "tx_bytes": 1571,
+          "witness_bytes": 85,
+          "cell_deps": 6,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 517,
+          "tx_hash": "0x536be7afbcb3f5470fb0d5b1102c000ee010c3841acf0a6143b46ccad40bd30d"
+        },
+        "delegate_2_exhaust_allowance": {
+          "cycles": 2067874,
+          "tx_bytes": 1482,
+          "witness_bytes": 85,
+          "cell_deps": 5,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 517,
+          "tx_hash": "0xf89d493a6f5d9b70c4527394f2ccada4de7bdd710f2f6857721c6448396da1a1"
+        },
+        "shared_exhausted": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "unauthorised_retirement": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "active_owner_independent_recovery": {
+          "cycles": 1664346,
+          "tx_bytes": 440,
+          "witness_bytes": 85,
+          "cell_deps": 2,
+          "header_deps": 0,
+          "tx_hash": "0x695c5f801a61b52cd2823676a259510e275493427c100f8a515add929f7dbaf2"
+        },
+        "deposit_for_close": {
+          "cycles": 1641839,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0x1cba0175a0840d1dcf7c4ca0479b67bf750ce1904805365403ea2158d2ee65cc"
+        },
+        "close": {
+          "cycles": 1957639,
+          "tx_bytes": 635,
+          "witness_bytes": 85,
+          "cell_deps": 5,
+          "header_deps": 1,
+          "tx_hash": "0xed034ac8d4ef2771405b91636a47ceab5ac8ad43e945d754516630d28e2c8d87"
+        },
+        "late_deposit": {
+          "cycles": 1645734,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0x8b49af23ff6b81ba99b08d14da66aca1b184bc1c4ae7d5d7b5776bd5f9997fdf"
+        },
+        "delegate_after_close": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/cfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee.html#51 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/cfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee.html#51 } }'}"
+        },
+        "late_owner_recovery": {
+          "cycles": 1650028,
+          "tx_bytes": 440,
+          "witness_bytes": 85,
+          "cell_deps": 2,
+          "header_deps": 0,
+          "tx_hash": "0xc4c2eb45127697269be126843be07dbaf4524d5e4ad6624ed0a1c21b0d753106"
+        },
+        "namespace_reuse": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "malformed_late_deposit": {
+          "cycles": 1645675,
+          "tx_bytes": 515,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0x281149335b07bd5ff30d498718f116364f10c8b2dfa9d1ea6967d5165ea33866"
+        },
+        "malformed_native_recovery": {
+          "cycles": 1642555,
+          "tx_bytes": 440,
+          "witness_bytes": 85,
+          "cell_deps": 2,
+          "header_deps": 0,
+          "tx_hash": "0x8980b71ebca88ca4077a8321566351682bc617b8c50cbc752ad2c92bafa7ef79"
+        }
+      }
+    },
+    "D": {
+      "capacity_ckb": {
+        "active_occupied": 582,
+        "active_shared_occupied": 496,
+        "active_funded": 600,
+        "active_initial_occupied": 582,
+        "retained_after_closure": 0,
+        "fund_cell_occupied": 105,
+        "custom_code_and_table_cells": {
+          "composed-fund-lock": 42461,
+          "quota-adapter": 61861,
+          "metatype": 64581,
+          "quotacell-payment-cap": 57133,
+          "table": 193,
+          "definition_capped": 184
+        }
+      },
+      "code_hashes": {
+        "composed-fund-lock": {
+          "bytes": 42400,
+          "sha256": "b0b4a82dc80968ca07f6301ed5bb082b5d2a69c5f6ad93a3eff618f5740f564f",
+          "ckb_data_hash": "0xcfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee"
+        },
+        "quota-adapter": {
+          "bytes": 61800,
+          "sha256": "3e390697cd063ed0324e013150d0b1881651228e04c791bf7fb02dfdba27fb6e",
+          "ckb_data_hash": "0x4662f787fdec3478615831108d816c4e68c7d6ab0291c27e4e9ae995570cdb6a"
+        },
+        "metatype": {
+          "bytes": 64520,
+          "sha256": "d8d89d81e2e3955ad4aa7a9dc0a09fe86fcfe9fbc60bbda3601f333f16477176",
+          "ckb_data_hash": "0x3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360"
+        },
+        "quotacell-payment-cap": {
+          "bytes": 57072,
+          "sha256": "ac5aeee36b5ec42a16bb2bba43e6750bb02dd04d69a783373bb903a0888b1e71",
+          "ckb_data_hash": "0xd235c378661cc76763f7130a908c4c56800f6c69d8eb7a1f7b5365ccca402e0b"
+        }
+      },
+      "tests": {
+        "policy_identity_substitution": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "create": {
+          "cycles": 2161682,
+          "tx_bytes": 1218,
+          "witness_bytes": 85,
+          "cell_deps": 6,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 582,
+          "tx_hash": "0x4eb3136f41dd7bb149ef6fc1eef6c5f0b1c71e778f7360052e86544e6b1a7f01"
+        },
+        "deposit": {
+          "cycles": 1631970,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0x2144b5489b0ea65c63a0bd2883f1e57c3ab99a50331ed62fcfeb322a19f612ee"
+        },
+        "wrong_owner": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/cfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee.html#51 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/cfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee.html#51 } }'}"
+        },
+        "wrong_recipient": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "duplicate_policy": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "counter_reset_rejected": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "cap_enforced_at_issuance": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "delegate_1_shared_verifier": {
+          "cycles": 2401099,
+          "tx_bytes": 1535,
+          "witness_bytes": 85,
+          "cell_deps": 7,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 496
+        },
+        "wrong_recipient_shared": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "delegate_1": {
+          "cycles": 2351486,
+          "tx_bytes": 1584,
+          "witness_bytes": 85,
+          "cell_deps": 6,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 582,
+          "tx_hash": "0xa7cb233286055df95a1d25e8a25a719f39698ddf67de5efbc449729d51629c83"
+        },
+        "replayed_authorisation": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code -31 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-type-hash/9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8.html#-31 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code -31 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-type-hash/9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8.html#-31 } }'}"
+        },
+        "remove_cap_rejected": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "revocation_control": {
+          "cycles": 2322093,
+          "tx_bytes": 1584,
+          "witness_bytes": 85,
+          "cell_deps": 6,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 582,
+          "payment_intent": {
+            "actor": "0xa2144acf9cc1dcce73ddd81d8b42454c96589ca3b71e95da9179ef4e49e4c72d",
+            "recipient": "0x679b7919ea7d3e0a5a1339fda9ab0f6950bf7118fa2e9d50af857b754c393b56",
+            "amount_shannons": 6100000000,
+            "fund_inputs": [
+              {
+                "tx_hash": "0xa7cb233286055df95a1d25e8a25a719f39698ddf67de5efbc449729d51629c83",
+                "index": "0x1"
+              }
+            ],
+            "quota_successor_hash": "0x5d49997f32b2df21e59e7ab086cb963d0eeb57daa48bcb39b0668e3d65be5e67"
+          }
+        },
+        "owner_revocation": {
+          "cycles": 2278375,
+          "tx_bytes": 1221,
+          "witness_bytes": 85,
+          "cell_deps": 7,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 496,
+          "tx_hash": "0x9372aaa3225be40532df121f5773d4ffef2b8f37d0e4ddd91bba6597657a0b9e"
+        },
+        "revoked_delegate": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}",
+          "payment_intent": {
+            "actor": "0xa2144acf9cc1dcce73ddd81d8b42454c96589ca3b71e95da9179ef4e49e4c72d",
+            "recipient": "0x679b7919ea7d3e0a5a1339fda9ab0f6950bf7118fa2e9d50af857b754c393b56",
+            "amount_shannons": 6100000000,
+            "fund_inputs": [
+              {
+                "tx_hash": "0xa7cb233286055df95a1d25e8a25a719f39698ddf67de5efbc449729d51629c83",
+                "index": "0x1"
+              }
+            ],
+            "quota_successor_hash": "0x01245f697930d8ade4baca86c066601e5864b6d37281fda382dfeed6ee88ab69"
+          }
+        },
+        "replenishment": {
+          "cycles": 1625631,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0xef247b7edb33843504ecbcb030112d9e2ee50913addb9c76878b2c7ad8a4d394"
+        },
+        "delegate_2_multi_fund": {
+          "cycles": 2390309,
+          "tx_bytes": 1673,
+          "witness_bytes": 85,
+          "cell_deps": 7,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 582,
+          "tx_hash": "0xd3029abe519653320c99b9af2ea8c4d6e2ab73c4bf204fdceaed7f0e99309936"
+        },
+        "delegate_2_exhaust_allowance": {
+          "cycles": 2318508,
+          "tx_bytes": 1584,
+          "witness_bytes": 85,
+          "cell_deps": 6,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 582,
+          "tx_hash": "0x21132c498cccbc186cf41f0349b8c37d38c083ad8db042092b3527646076f203"
+        },
+        "shared_exhausted": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "unauthorised_retirement": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "active_owner_independent_recovery": {
+          "cycles": 1648674,
+          "tx_bytes": 440,
+          "witness_bytes": 85,
+          "cell_deps": 2,
+          "header_deps": 0,
+          "tx_hash": "0x705088c7e7369aae5f683d8a4762cfcc75f3a1d6adef5df2850c71c3e9818cff"
+        },
+        "deposit_for_close": {
+          "cycles": 1627154,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0x5d7cfbd8a2503255e6dcd612badef1817346ba5a8feb24610b92ab3fc6929f09"
+        },
+        "close": {
+          "cycles": 2178217,
+          "tx_bytes": 672,
+          "witness_bytes": 85,
+          "cell_deps": 6,
+          "header_deps": 1,
+          "tx_hash": "0x0e22997b2263a12541ff7970d4fc48c7288c2df1030cdf2ffbfe6501f6947446"
+        },
+        "late_deposit": {
+          "cycles": 1629284,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0x7a553c4b8b0be620d62d90c47e66cb99ef15515c19cb44ee2368b123f5b1cdc5"
+        },
+        "delegate_after_close": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/cfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee.html#51 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/cfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee.html#51 } }'}"
+        },
+        "late_owner_recovery": {
+          "cycles": 1677535,
+          "tx_bytes": 440,
+          "witness_bytes": 85,
+          "cell_deps": 2,
+          "header_deps": 0,
+          "tx_hash": "0x53583142d670841a0cf144ede9da3da7804d5ae36d9da0f68174d0084627f51c"
+        },
+        "namespace_reuse": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "malformed_late_deposit": {
+          "cycles": 1647277,
+          "tx_bytes": 515,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0xcaf99eb5e5d46c1add8d3e9a979f4bdc8e9cc8c4e78dfb4563e14f574430d742"
+        },
+        "malformed_native_recovery": {
+          "cycles": 1677884,
+          "tx_bytes": 440,
+          "witness_bytes": 85,
+          "cell_deps": 2,
+          "header_deps": 0,
+          "tx_hash": "0xfd23cf3071000ea458af27fd83abd657bb2d9d2a1599ec0dc6dfb517498f7e4e"
+        }
+      }
+    },
+    "E": {
+      "capacity_ckb": {
+        "active_occupied": 582,
+        "active_shared_occupied": 496,
+        "active_funded": 600,
+        "active_initial_occupied": 517,
+        "retained_after_closure": 0,
+        "fund_cell_occupied": 105,
+        "custom_code_and_table_cells": {
+          "composed-fund-lock": 42461,
+          "quota-adapter": 61861,
+          "metatype": 64581,
+          "quotacell-payment-cap": 57133,
+          "table": 193,
+          "definition_quota": 119,
+          "definition_capped": 184
+        }
+      },
+      "code_hashes": {
+        "composed-fund-lock": {
+          "bytes": 42400,
+          "sha256": "b0b4a82dc80968ca07f6301ed5bb082b5d2a69c5f6ad93a3eff618f5740f564f",
+          "ckb_data_hash": "0xcfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee"
+        },
+        "quota-adapter": {
+          "bytes": 61800,
+          "sha256": "3e390697cd063ed0324e013150d0b1881651228e04c791bf7fb02dfdba27fb6e",
+          "ckb_data_hash": "0x4662f787fdec3478615831108d816c4e68c7d6ab0291c27e4e9ae995570cdb6a"
+        },
+        "metatype": {
+          "bytes": 64520,
+          "sha256": "d8d89d81e2e3955ad4aa7a9dc0a09fe86fcfe9fbc60bbda3601f333f16477176",
+          "ckb_data_hash": "0x3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360"
+        },
+        "quotacell-payment-cap": {
+          "bytes": 57072,
+          "sha256": "ac5aeee36b5ec42a16bb2bba43e6750bb02dd04d69a783373bb903a0888b1e71",
+          "ckb_data_hash": "0xd235c378661cc76763f7130a908c4c56800f6c69d8eb7a1f7b5365ccca402e0b"
+        }
+      },
+      "tests": {
+        "policy_identity_substitution": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "create": {
+          "cycles": 1965954,
+          "tx_bytes": 1116,
+          "witness_bytes": 85,
+          "cell_deps": 5,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 517,
+          "tx_hash": "0x3988869e8c9a4cffd68c34053279e2087e860dc3e13998b2471980e05fd62be6"
+        },
+        "deposit": {
+          "cycles": 1628389,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0xedee4458d666f835a1d5b54dc8ffbcec3a669b25208b18ff7a3d1074a71b1f3f"
+        },
+        "wrong_owner": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/cfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee.html#51 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/cfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee.html#51 } }'}"
+        },
+        "wrong_recipient": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "duplicate_policy": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "counter_reset_rejected": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "delegate_1_shared_verifier": {
+          "cycles": 2077400,
+          "tx_bytes": 1496,
+          "witness_bytes": 85,
+          "cell_deps": 6,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 494
+        },
+        "wrong_recipient_shared": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "delegate_1": {
+          "cycles": 2087433,
+          "tx_bytes": 1482,
+          "witness_bytes": 85,
+          "cell_deps": 5,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 517,
+          "tx_hash": "0xf8ca463ab307551b38e25e7e38b1ffe8a0522816694c74af3108d7c7aa5d6ee2"
+        },
+        "replayed_authorisation": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code -31 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-type-hash/9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8.html#-31 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code -31 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-type-hash/9bd7e06f3ecf4be0f2fcd2188b23f1b9fcc88e5d4b65a8637b17723bbda3cce8.html#-31 } }'}"
+        },
+        "within_cap_before_attachment": {
+          "cycles": 2058986,
+          "tx_bytes": 1482,
+          "witness_bytes": 85,
+          "cell_deps": 5,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 517,
+          "payment_intent": {
+            "actor": "0xf94b2eda21ab2caff8dcf11ca6b9d258cd1797ac250b7540a60a4bafd517c091",
+            "recipient": "0x71faf5ee1839cc7d04bb59ad44796e25170fe4271db14049fcd82130a3ad85b7",
+            "amount_shannons": 6100000000,
+            "fund_inputs": [
+              {
+                "tx_hash": "0xf8ca463ab307551b38e25e7e38b1ffe8a0522816694c74af3108d7c7aa5d6ee2",
+                "index": "0x1"
+              }
+            ],
+            "quota_successor_hash": "0xa85028396c5f118d65cfb6a7fa638036a1762735300dcfb924f28d1e2ad1dc6c"
+          }
+        },
+        "above_cap_before_attachment": {
+          "cycles": 2050198,
+          "tx_bytes": 1482,
+          "witness_bytes": 85,
+          "cell_deps": 5,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 517,
+          "payment_intent": {
+            "actor": "0xf94b2eda21ab2caff8dcf11ca6b9d258cd1797ac250b7540a60a4bafd517c091",
+            "recipient": "0x71faf5ee1839cc7d04bb59ad44796e25170fe4271db14049fcd82130a3ad85b7",
+            "amount_shannons": 6200000000,
+            "fund_inputs": [
+              {
+                "tx_hash": "0xf8ca463ab307551b38e25e7e38b1ffe8a0522816694c74af3108d7c7aa5d6ee2",
+                "index": "0x1"
+              }
+            ],
+            "quota_successor_hash": "0x39ecbcde0269f41222822408eeb4adb046b48d2e479af0ed8b1f19f61e9dff14"
+          }
+        },
+        "delegate_attachment_rejected": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "attachment_with_quota_change_rejected": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "attach_cap": {
+          "cycles": 2251320,
+          "tx_bytes": 1270,
+          "witness_bytes": 85,
+          "cell_deps": 6,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 582,
+          "tx_hash": "0x9be0a5ccb032ce5ce34ac77f08bde7e5d02e64068a088b85544427327d96165e"
+        },
+        "above_cap_after_attachment": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}",
+          "payment_intent": {
+            "actor": "0xf94b2eda21ab2caff8dcf11ca6b9d258cd1797ac250b7540a60a4bafd517c091",
+            "recipient": "0x71faf5ee1839cc7d04bb59ad44796e25170fe4271db14049fcd82130a3ad85b7",
+            "amount_shannons": 6200000000,
+            "fund_inputs": [
+              {
+                "tx_hash": "0xf8ca463ab307551b38e25e7e38b1ffe8a0522816694c74af3108d7c7aa5d6ee2",
+                "index": "0x1"
+              }
+            ],
+            "quota_successor_hash": "0x39ecbcde0269f41222822408eeb4adb046b48d2e479af0ed8b1f19f61e9dff14"
+          }
+        },
+        "remove_cap_rejected": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "revocation_control": {
+          "cycles": 2319982,
+          "tx_bytes": 1584,
+          "witness_bytes": 85,
+          "cell_deps": 6,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 582,
+          "payment_intent": {
+            "actor": "0xf94b2eda21ab2caff8dcf11ca6b9d258cd1797ac250b7540a60a4bafd517c091",
+            "recipient": "0x71faf5ee1839cc7d04bb59ad44796e25170fe4271db14049fcd82130a3ad85b7",
+            "amount_shannons": 6100000000,
+            "fund_inputs": [
+              {
+                "tx_hash": "0xf8ca463ab307551b38e25e7e38b1ffe8a0522816694c74af3108d7c7aa5d6ee2",
+                "index": "0x1"
+              }
+            ],
+            "quota_successor_hash": "0xa85028396c5f118d65cfb6a7fa638036a1762735300dcfb924f28d1e2ad1dc6c"
+          }
+        },
+        "owner_revocation": {
+          "cycles": 2300551,
+          "tx_bytes": 1221,
+          "witness_bytes": 85,
+          "cell_deps": 7,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 496,
+          "tx_hash": "0xd7574da17c5dd747ef38d8aebb66f7c046ef63fef472b917c777df4a864c48d4"
+        },
+        "revoked_delegate": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}",
+          "payment_intent": {
+            "actor": "0xf94b2eda21ab2caff8dcf11ca6b9d258cd1797ac250b7540a60a4bafd517c091",
+            "recipient": "0x71faf5ee1839cc7d04bb59ad44796e25170fe4271db14049fcd82130a3ad85b7",
+            "amount_shannons": 6100000000,
+            "fund_inputs": [
+              {
+                "tx_hash": "0xf8ca463ab307551b38e25e7e38b1ffe8a0522816694c74af3108d7c7aa5d6ee2",
+                "index": "0x1"
+              }
+            ],
+            "quota_successor_hash": "0x2cc508f7226c3504e346573fe22d86e8fe353ff587e0f3ac3dbc99585f44d484"
+          }
+        },
+        "replenishment": {
+          "cycles": 1666610,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0x455660e769505c92898c7366faed2906d595170ea09acd10790e7b0a68a3a39f"
+        },
+        "delegate_2_multi_fund": {
+          "cycles": 2398363,
+          "tx_bytes": 1673,
+          "witness_bytes": 85,
+          "cell_deps": 7,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 582,
+          "tx_hash": "0xfc87e273e86f57a67a5af4fb32ee44e7b9dbec74464324934998df8ec767d068"
+        },
+        "delegate_2_exhaust_allowance": {
+          "cycles": 2317908,
+          "tx_bytes": 1584,
+          "witness_bytes": 85,
+          "cell_deps": 6,
+          "header_deps": 1,
+          "policy_output_occupied_ckb": 582,
+          "tx_hash": "0x934618ffa69746c0067c99e77387792df20d22e6281e382d99f1be82ebf3fe89"
+        },
+        "shared_exhausted": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "unauthorised_retirement": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "active_owner_independent_recovery": {
+          "cycles": 1648152,
+          "tx_bytes": 440,
+          "witness_bytes": 85,
+          "cell_deps": 2,
+          "header_deps": 0,
+          "tx_hash": "0x4165a9e0853e6da724560ae31972772092b741ec42877b9c45826f8e535a9a53"
+        },
+        "deposit_for_close": {
+          "cycles": 1612851,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0x650550ecfb776aa82beda4243a14384451ba49b7de2740ec31769aa352e128a2"
+        },
+        "close": {
+          "cycles": 2208795,
+          "tx_bytes": 672,
+          "witness_bytes": 85,
+          "cell_deps": 6,
+          "header_deps": 1,
+          "tx_hash": "0xad0376fae525e8d3e8ce2a04805c17583a31df9687b302fc84694c5d457c59fa"
+        },
+        "late_deposit": {
+          "cycles": 1618635,
+          "tx_bytes": 504,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0x2d6ccc16a5a10c4516600b6b5234fb434a3f0a4dcec8ef54f0efc8fa0d450bf8"
+        },
+        "delegate_after_close": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/cfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee.html#51 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[1].Lock, cause: ValidationFailure: see error code 51 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/cfae4d92f791e35474ccd34f88e5b280bace80e4d867c39b7d834dd03c32acee.html#51 } }'}"
+        },
+        "late_owner_recovery": {
+          "cycles": 1665995,
+          "tx_bytes": 440,
+          "witness_bytes": 85,
+          "cell_deps": 2,
+          "header_deps": 0,
+          "tx_hash": "0x9dad51e770d0b4fa0a87bff043f002634a8f67deb4f6a7c6a7907d230252703a"
+        },
+        "namespace_reuse": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Outputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "malformed_late_deposit": {
+          "cycles": 1643249,
+          "tx_bytes": 515,
+          "witness_bytes": 85,
+          "cell_deps": 1,
+          "header_deps": 0,
+          "tx_hash": "0x2775bfff0efd8ee08abb2e69b7caa09e27eb33b2b25bf8a7adebeee549093a63"
+        },
+        "malformed_native_recovery": {
+          "cycles": 1665257,
+          "tx_bytes": 440,
+          "witness_bytes": 85,
+          "cell_deps": 2,
+          "header_deps": 0,
+          "tx_hash": "0xadfaa0541450d68efc9bf96c82ebcc3d63eb6b54a438ae43771501a5311ab152"
+        }
+      },
+      "attachment": {
+        "before": {
+          "policy_outpoint": {
+            "tx_hash": "0xf8ca463ab307551b38e25e7e38b1ffe8a0522816694c74af3108d7c7aa5d6ee2",
+            "index": "0x0"
+          },
+          "physical_type_hash": "0xb44a1da254d3c53f2895e2e19c9853a5f88dfe3ac5fd0405d8158a434fc98c7a",
+          "fund_lock_hash": "0x891e21d99d909829040f45090a63e39bb451160a1c8dbcb4a823240765db777c",
+          "pocket_namespace": "0x237bf3216b24fe690bf0252ba8875b186a291e1dc40e11153448cbe304ce6336",
+          "adapter_table_hash": "0x4c58de38c45094a581b36881513afc5086954719668adf74814ad5ed32ddb6f3",
+          "attached_constraints": [
+            "quota"
+          ],
+          "quota_state_hash": "0x2e9ee6bf5d7d3bc4fd7f0f10ce3ccec33070725f19f9d385eaf64f5a3106694c",
+          "shared_used_ckb": 61,
+          "individual_used_ckb": [
+            61,
+            0
+          ],
+          "enabled_mask": 3,
+          "manifest_data_hash": "0xb4222862e1a94d198f46d0bec6996ed0cbef2d7c11ce200fb55df536b1f9cd52",
+          "occupied_ckb": 517
+        },
+        "after": {
+          "policy_outpoint": {
+            "tx_hash": "0x9be0a5ccb032ce5ce34ac77f08bde7e5d02e64068a088b85544427327d96165e",
+            "index": "0x0"
+          },
+          "physical_type_hash": "0xb44a1da254d3c53f2895e2e19c9853a5f88dfe3ac5fd0405d8158a434fc98c7a",
+          "fund_lock_hash": "0x891e21d99d909829040f45090a63e39bb451160a1c8dbcb4a823240765db777c",
+          "pocket_namespace": "0x237bf3216b24fe690bf0252ba8875b186a291e1dc40e11153448cbe304ce6336",
+          "adapter_table_hash": "0x4c58de38c45094a581b36881513afc5086954719668adf74814ad5ed32ddb6f3",
+          "attached_constraints": [
+            "quota",
+            "cap"
+          ],
+          "quota_state_hash": "0x2e9ee6bf5d7d3bc4fd7f0f10ce3ccec33070725f19f9d385eaf64f5a3106694c",
+          "shared_used_ckb": 61,
+          "individual_used_ckb": [
+            61,
+            0
+          ],
+          "enabled_mask": 3,
+          "manifest_data_hash": "0x3335f4d531ede4ba66d7b5e62bfe0f5e61b7a14330fd627e6457ce6812b97493",
+          "occupied_ckb": 582
+        }
+      }
+    }
+  },
+  "interfaces": {
+    "fixed": {
+      "payment": {
+        "cycles": 2351486,
+        "tx_bytes": 1584,
+        "witness_bytes": 85,
+        "cell_deps": 6,
+        "header_deps": 1,
+        "policy_output_occupied_ckb": 582,
+        "tx_hash": "0xa7cb233286055df95a1d25e8a25a719f39698ddf67de5efbc449729d51629c83"
+      },
+      "checks": {}
+    },
+    "semantic_state": {
+      "payment": {
+        "cycles": 2331284,
+        "tx_bytes": 1595,
+        "witness_bytes": 85,
+        "cell_deps": 6,
+        "header_deps": 1,
+        "policy_output_occupied_ckb": 593,
+        "tx_hash": "0xc9a1e04c83afa570b9113489ae9f2220388908efae12466338ff8a1a96d0ba53"
+      },
+      "checks": {
+        "incorrect_reference": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "reordered_outputs": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        }
+      }
+    },
+    "group_message": {
+      "payment": {
+        "cycles": 2360522,
+        "tx_bytes": 1700,
+        "witness_bytes": 192,
+        "cell_deps": 6,
+        "header_deps": 1,
+        "policy_output_occupied_ckb": 583,
+        "tx_hash": "0xd3b7d8112b689f85792c6f5e50e48151ea767455c001b302d2abd85a39c760c8"
+      },
+      "checks": {
+        "incorrect_reference": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "reordered_outputs": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        },
+        "missing_group_reference": {
+          "rejected": "{'code': -302, 'message': 'TransactionFailedToVerify: Script(TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 })', 'data': 'Error { kind: Script, inner: TransactionScriptError { source: Inputs[0].Type, cause: ValidationFailure: see error code 46 on page https://nervosnetwork.github.io/ckb-script-error-codes/by-data-hash/3dde9a05e6cd38d52c961f194ca9d175f83989c7f98930c38cc93701de218360.html#46 } }'}"
+        }
+      }
+    }
+  }
+}

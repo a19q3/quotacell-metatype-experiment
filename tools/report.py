@@ -1,4 +1,4 @@
-"""Render the comparison's table and charts from raw verifier evidence."""
+"""Render the v0.1.1 report and charts from raw verifier evidence."""
 
 import argparse
 import json
@@ -10,33 +10,39 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.ticker import StrMethodFormatter
 
-VARIANTS = ("A", "B", "C", "C+cap")
-COLOURS = ("#4b5563", "#225ea8", "#087f6d", "#a04e21")
+PROFILES = ("A", "B", "C", "D", "E")
+COLOURS = ("#4b5563", "#225ea8", "#087f6d", "#a04e21", "#723c93")
 LIFECYCLE = (
-    ("create", "Create"), ("deposit", "Deposit"), ("delegate_1", "Delegate 1"),
-    ("delegate_2_multi_fund", "Delegate 2 (2 funds)"), ("owner_revocation", "Revoke"),
+    ("create", "Create"), ("delegate_1", "First payment"), ("attach_cap", "Attach cap"),
+    ("owner_revocation", "Revoke"), ("delegate_2_multi_fund", "Payment (two funds)"),
     ("close", "Close"), ("late_owner_recovery", "Late recovery"),
 )
 CAPACITY = (
-    ("active_occupied", "Active policy (inline)"), ("active_shared_occupied", "Active policy (shared where used)"),
-    ("retained_after_closure", "Policy after closure"), ("fund_cell_occupied", "Each protected fund"),
+    ("active_initial_occupied", "Policy at issuance"), ("active_occupied", "Active policy, inline"),
+    ("active_shared_occupied", "Active policy, shared form"), ("retained_after_closure", "Policy after closure"),
+    ("fund_cell_occupied", "Each protected fund"),
 )
+METRICS = ("tx_bytes", "witness_bytes", "cycles", "cell_deps", "header_deps")
+
+
+def case_metric(variant, step, metric):
+    return variant["tests"].get(step, {}).get(metric)
 
 
 def chart(data, destination):
-    figure, axes = plt.subplots(1, 3, figsize=(15, 5.6), gridspec_kw={"width_ratios": [0.92, 1, 1]})
+    figure, axes = plt.subplots(1, 3, figsize=(15, 5.7), gridspec_kw={"width_ratios": [0.92, 1, 1]})
     for ax, title, xlabel, rows, getter in (
         (axes[0], "Lifecycle capacity", "Occupied capacity (CKB)", CAPACITY,
          lambda variant, key: variant["capacity_ckb"][key]),
         (axes[1], "Transaction size", "Molecule transaction bytes", LIFECYCLE,
-         lambda variant, key: variant["tests"][key]["tx_bytes"]),
+         lambda variant, key: case_metric(variant, key, "tx_bytes")),
         (axes[2], "RISC-V verification", "Cycles (millions)", LIFECYCLE,
-         lambda variant, key: variant["tests"][key]["cycles"] / 1e6),
+         lambda variant, key: (case_metric(variant, key, "cycles") or 0) / 1e6),
     ):
-        for index, (variant, colour) in enumerate(zip(VARIANTS, COLOURS, strict=True)):
-            xs = [getter(data[variant], key) for key, _ in rows]
-            ys = [row + (index - 1.5) * 0.19 for row in range(len(rows))]
-            ax.barh(ys, xs, height=0.17, color=colour, label=variant, zorder=2)
+        for index, (variant, colour) in enumerate(zip(PROFILES, COLOURS, strict=True)):
+            xs = [getter(data[variant], key) or 0 for key, _ in rows]
+            ys = [row + (index - 2) * 0.16 for row in range(len(rows))]
+            ax.barh(ys, xs, height=0.14, color=colour, label=variant, zorder=2)
         ax.set_yticks(range(len(rows)), [label for _, label in rows], fontsize=8)
         ax.invert_yaxis()
         ax.set(title=title, xlabel=xlabel)
@@ -45,70 +51,92 @@ def chart(data, destination):
         ax.xaxis.set_major_formatter(StrMethodFormatter("{x:,.0f}" if ax != axes[2] else "{x:,.1f}"))
         ax.grid(axis="x", alpha=0.24, zorder=1)
     handles, labels = axes[0].get_legend_handles_labels()
-    figure.legend(handles, labels, loc="lower center", ncol=4, frameon=False)
-    figure.subplots_adjust(left=0.143, right=0.99, bottom=0.16, top=0.91, wspace=0.63)
+    figure.legend(handles, labels, loc="lower center", ncol=5, frameon=False)
+    figure.subplots_adjust(left=0.15, right=0.99, bottom=0.16, top=0.91, wspace=0.61)
     figure.savefig(destination, dpi=160)
     plt.close(figure)
 
 
 def report(run):
     data = run["variants"]
+    e = data["E"]
+    before, after = e["attachment"]["before"], e["attachment"]["after"]
 
-    def values(getter):
-        return " | ".join(f"{getter(data[key]):,}" for key in VARIANTS)
+    def capacity_row(key, title):
+        values = [data[p]["capacity_ckb"][key] for p in PROFILES]
+        return f"| {title} | " + " | ".join("—" if value is None else f"{value:,}" for value in values) + " |"
 
+    def measurement(row):
+        return " / ".join(f"{row[field]:,}" for field in METRICS)
+
+    same_payment_before, same_payment_after = (
+        e["tests"][key] for key in ("within_cap_before_attachment", "revocation_control")
+    )
+    cap_deployment = data["D"]["capacity_ckb"]["custom_code_and_table_cells"]
+    total_costs = [sum(data[profile]["capacity_ckb"]["custom_code_and_table_cells"].values())
+                   for profile in PROFILES]
     parts = [
-        "# Results",
+        "# Results v0.1.1",
         "",
-        "Both independent-recovery profiles released the entire policy Cell and recovered a late deposit. Their owner can also withdraw during the active phase. The original QCN4/QCT4 lifecycle retained 134 CKB and required the live terminal policy for late recovery.",
+        "Profile E attached the cap on an existing Pocket after its first delegated payment, then completed further delegated payments and owner closure. A matched 62 CKB payment passed the verifier before attachment and failed afterwards. The same 61 CKB payment passed on both sides of attachment as a control.",
         "",
-        "The conventional profile B used fewer bytes, dependencies and cycles for delegated payments than C. Both serialise delegated spends through one policy Cell. C's benefit in this experiment was a separate payment-cap adapter that enforced a tighter ceiling and rejected its own removal while the quota policy was live. Its introduction left the quota adapter byte-for-byte unchanged.",
+        f"The committed successor kept the physical Type hash, namespace, fund Lock, table hash and all quota state bytes. Shared usage stayed at {after['shared_used_ckb']} CKB and delegate usage at {after['individual_used_ckb']} CKB. The policy outpoint and Manifest data hash changed. The Quota ELF remained byte for byte identical to the historical release.",
         "",
-        "![Comparison of occupied capacity, transaction size and verifier cycles](evidence/comparison.png)",
+        "![Occupied capacity, transaction sizes and verifier cycles for profiles A–E](evidence/comparison-v0.1.1.png)",
         "",
-        "## Capacity",
+        "## Occupied capacity",
         "",
-        "| CKB | A | B | C | C+cap |",
-        "| --- | ---: | ---: | ---: | ---: |",
-    ]
-    for key, title in CAPACITY:
-        parts.append(f"| {title} | {values(lambda variant: variant['capacity_ckb'][key])} |")
-    parts.append(f"| Funded active policy | {values(lambda variant: variant['capacity_ckb']['active_funded'])} |")
-    parts.append(f"| Shared custom code, table and definition | {values(lambda variant: sum(variant['capacity_ckb']['custom_code_and_table_cells'].values()))} |")
-    common = run["common_genesis_secp_cell_occupied_ckb"]
-    parts.extend([
+        "| CKB | A | B | C | D | E |",
+        "| --- | ---: | ---: | ---: | ---: | ---: |",
+        *(capacity_row(key, title) for key, title in CAPACITY),
+        "| Shared custom ELFs, table and definitions | " + " | ".join(f"{cost:,}" for cost in total_costs) + " |",
         "",
-        f"Each active policy was funded at 600 CKB. Closure released 466 CKB in A and 600 CKB in B and C before fees. Custom deployment costs are shared across Pockets using the same code and definitions. The optional shared-definition Cell is included for C and C+cap. Verification cycles cover the whole signed transaction. The genesis secp code, precomputation data and dep-group Cells together occupy {sum(common):,} CKB, a common chain cost excluded from the custom deployment totals.",
+        f"Attachment grew the same inline policy from {before['occupied_ckb']} to {after['occupied_ckb']} CKB occupied, an increase of {after['occupied_ckb'] - before['occupied_ckb']} CKB. In this run every active policy held 600 CKB. Shared deployment costs include a {cap_deployment['quotacell-payment-cap']:,} CKB code Cell for the new cap. D and E already deploy that code. E also stores the optional Quota-only shared definition. Common genesis secp code, data and dep group occupy {sum(run['common_genesis_secp_cell_occupied_ckb']):,} CKB and are omitted from custom deployment totals.",
         "",
         "## Transactions",
         "",
-        "Each entry gives transaction bytes / witness payload bytes / verification cycles / Cell Deps / Header Deps. Dep counts are encoded transaction entries. The shared secp dep-group entry resolves to two code/data Cells. C uses an inline input and shared successor for its first payment, and the reverse for its second.",
+        "Each entry lists transaction bytes / witness payload bytes / verification cycles / Cell Deps / Header Deps. One secp dep-group entry resolves to its code and data Cells. All profiles use the same 183 CKB shared and individual limits, a 62 CKB quota ceiling per payment, and 61 CKB in each committed payment. D applies an additional 61 CKB cap from issuance and E applies it after attachment. C, D and E separately exercise both inline and shared encodings.",
         "",
-        "| Scenario | A | B | C | C+cap |",
-        "| --- | ---: | ---: | ---: | ---: |",
-    ])
+        "| Scenario | A | B | C | D | E |",
+        "| --- | ---: | ---: | ---: | ---: | ---: |",
+    ]
     for key, title in LIFECYCLE:
-        entries = []
-        for variant in data.values():
-            metrics = variant["tests"][key]
-            entries.append(" / ".join(f"{metrics[field]:,}" for field in
-                                      ("tx_bytes", "witness_bytes", "cycles", "cell_deps", "header_deps")))
-        parts.append(f"| {title} | {' | '.join(entries)} |")
-    parts.extend(["", "## Verification", ""])
-    for label in VARIANTS:
+        row = [measurement(value) if (value := data[p]["tests"].get(key)) else "—" for p in PROFILES]
+        parts.append(f"| {title} | {' | '.join(row)} |")
+    parts.extend([
+        "",
+        f"Profile E's paired 61 CKB dry runs measured {measurement(same_payment_before)} before attachment and {measurement(same_payment_after)} afterwards. The continuing cap added {same_payment_after['tx_bytes'] - same_payment_before['tx_bytes']} transaction bytes, {same_payment_after['cell_deps'] - same_payment_before['cell_deps']} Cell Dep and {same_payment_after['cycles'] - same_payment_before['cycles']:,} measured cycles. The witness payload stayed at {same_payment_after['witness_bytes']} bytes. Signatures differ between transactions and contribute to cycle variation.",
+        "",
+        "## Payment interface variants",
+        "",
+        "| Approach | Payment metrics in the order above | Occupied policy successor (CKB) |",
+        "| --- | ---: | ---: |",
+    ])
+    for key, title in (("fixed", "Fixed positions"), ("semantic_state", "Successor-state references"),
+                       ("group_message", "Group Message references")):
+        payment = run["interfaces"][key]["payment"]
+        parts.append(f"| {title} | {measurement(payment)} | {payment['policy_output_occupied_ckb']} |")
+    parts.extend([
+        "",
+        "The two reference carriers rejected a claim using the actor's change as the payment. The witness mode also rejected an absent Group Message. Reordering outputs and providing matching references still failed the combined policy. The cap checked actual transaction roles in both modes, and the original quota validator retained its fixed positions. [Wire layout and responsibilities](PAYMENT-INTERFACE.md)",
+        "",
+        "## Verification and limits",
+        "",
+    ])
+    for label in PROFILES:
         cases = data[label]["tests"].values()
         committed = sum("tx_hash" in case for case in cases)
         rejected = sum("rejected" in case for case in cases)
         verified = len(cases) - committed - rejected
-        dry_runs = f", plus {verified} accepted dry run" if verified else ""
-        parts.append(f"- **{label}** passed {committed} committed cases and {rejected} expected rejections{dry_runs}.")
+        dry_runs = "dry run" if verified == 1 else "dry runs"
+        parts.append(f"- **{label}** passed {committed} committed cases, {verified} positive {dry_runs} and {rejected} expected rejections.")
     parts.extend([
         "",
-        "Cases cover authenticated creation, both delegate payments, exhausted shared allowance after treasury replenishment, incorrect recipients, revocation, and aggregation of two protected fund inputs. They also cover policy duplication, identity substitution, counter reset, a stale authorisation, unauthorised retirement, owner closure and late recovery. B and C reject reclaiming delegated authority after retirement and recover malformed untyped native deposits via the owner path. In C the verifier accepts both inline and shared payment successors from the same state and rejects an incorrect recipient with either representation.",
+        "Each profile verifies the same delegate payment before and after revocation while sufficient shared and individual allowance remains. Shared exhaustion is a separate case using the still-enabled delegate. E additionally rejects attachment by a delegate, attachment with a quota-state change and removal while the policy survives. B–E recover late funds with independent owner authority and zero retained policy Capacity. Independent owner recovery permits withdrawal during the active phase.",
         "",
-        "The retained-capacity result depends on independent owner authority. Strict recovery-after-closure under a zero-retained-capacity construction remains open. Measured cycles include secp verification and can vary with fresh signatures. Maximum fan-in, general asset recovery and reorganisations were outside this run.",
+        "The single quota Cell still serialises delegated spending. Attachment depends on an existing immutable table mapping. The additional cap is scoped to native CKB. The reference variants do not change Quota's position rules. The experiment exercises an isolated devnet and is unaudited.",
         "",
-        "See [raw results and exact deployed hashes](evidence/comparison.json), [first-party builds](evidence/contracts.json), [failed attempts and corrections](evidence/run-notes.md), and [reproduction commands](README.md).",
+        "See [raw measurements and exact hashes](evidence/comparison-v0.1.1.json), [build hashes](evidence/contracts-v0.1.1.json), [reproduction commands](README.md) and [historical measurements](RESULTS.md).",
     ])
     return "\n".join(parts) + "\n"
 
@@ -119,8 +147,8 @@ def main():
     args = parser.parse_args()
     run = json.loads(args.raw.read_text())
     root = Path(__file__).resolve().parents[1]
-    chart(run["variants"], root / "evidence/comparison.png")
-    (root / "RESULTS.md").write_text(report(run))
+    chart(run["variants"], root / "evidence/comparison-v0.1.1.png")
+    (root / "RESULTS-v0.1.1.md").write_text(report(run))
 
 
 if __name__ == "__main__":
